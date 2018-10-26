@@ -86,7 +86,7 @@ namespace Scraper
                         year = dataLi[1];
                     Console.WriteLine(listOfPaintingUrls[i].Text);
                     paintings.Add(new Painting(i, comboBox1.Text, dataLi[0], year, listOfPaintingUrls[i].GetAttribute("href")));
-                    LogPaintings(paintings);
+                    // LogPaintings(paintings);
                     progressBar1.Value = i;
                 }
                 label4.Text = "Number of Paintings: " + listOfPaintings.Count;
