@@ -6,7 +6,6 @@ using System.Net;
 using System.Windows.Forms;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
 
 namespace Scraper
 {
@@ -21,7 +20,6 @@ namespace Scraper
 
             // Initialize webdriver
             driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("https://www.wikiart.org/en/rembrandt/all-works/text-list");
             progressBar1.Step = 1;
             progressBar1.Value = 0;
 
@@ -72,8 +70,8 @@ namespace Scraper
 
             if (listOfPaintings.Count > 0)
             {
-                paintings.Clear();
-                progressBar1.Maximum = listOfPaintings.Count;
+                paintings.Clear(); // Clear the global painting list before we search for paintings again
+                progressBar1.Maximum = listOfPaintings.Count - 1;
 
                 for (int i = 0; i < listOfPaintings.Count; i++)
                 {
@@ -172,6 +170,8 @@ namespace Scraper
             var selectedUrl = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Value;
             driver.Navigate().GoToUrl(selectedUrl);
             label1.Text = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Key;
+            progressBar1.Step = 1;
+            progressBar1.Value = 0;
         }
     }
 
