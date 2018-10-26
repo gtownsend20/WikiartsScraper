@@ -51,11 +51,11 @@ namespace Scraper
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Can use dialog.FileName
-                    using (Stream stream = dialog.OpenFile())
-                    {
-                        // Save data
-                    }
+                    StreamWriter file = new StreamWriter(dialog.FileName.ToString());
+                    foreach (var p in paintings)
+                        file.WriteLine(p.id + "," + p.artist + "," + p.namePainting + "," + p.yearPainting + "," + p.url);
+                    
+                    file.Close();
                 }
             }
         }
@@ -72,6 +72,7 @@ namespace Scraper
 
             if (listOfPaintings.Count > 0)
             {
+                paintings.Clear();
                 progressBar1.Maximum = listOfPaintings.Count;
 
                 for (int i = 0; i < listOfPaintings.Count; i++)
@@ -104,9 +105,9 @@ namespace Scraper
         /// <param name="list">The list to be printed</param>
         private void LogPaintings(List<Painting> list)
         {
-            Console.WriteLine("id;artist;namepainting;yearpainting;url");
+            Console.WriteLine("id,artist,namepainting,yearpainting,url");
             foreach (var p in paintings)
-                Console.WriteLine(p.id + ";" + p.artist + ";" + p.namePainting + ";" + p.yearPainting + ";" + p.url);
+                Console.WriteLine(p.id + "," + p.artist + "," + p.namePainting + "," + p.yearPainting + "," + p.url);
         }
 
         /// <summary>
