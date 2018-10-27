@@ -40,4 +40,4 @@ This means that each artist will have a seperate incrementing id from `0` to `n`
 ### Future Work
 * URL "prediction" to eliminate seperate navigation to each artist's painting if there is no desire to save additonal information/features from that painting.
 * CLI 
-* Ability to turn queue scraping for a set of artists to overcome the `0` to `n` behaviour mentioned above.
+* Ability to queue a set of artists for scraping to overcome the `0` to `n` behaviour mentioned above. 
