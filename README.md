@@ -38,6 +38,7 @@ Note that the name of the images stored in `C:\CurrentDateTime` correspond to th
 This means that each artist will have a seperate incrementing id from `0` to `n`
 
 ### Future Work
-* URL "prediction" to eliminate seperate navigation to each artist's painting if there is no desire to save additonal information/features from that painting.
-* CLI 
+* URL "prediction" to eliminate seperate navigation to each artist's painting if there is no desire to save additonal information/features from that painting. 
 * Ability to queue a set of artists for scraping to overcome the `0` to `n` behaviour mentioned above. 
+* Instead of saving information of each painting in working memory before writing it away, a StreamReader and StreamWriter approach will improve memory usage and responsiveness.
+* Implement background workers for certain operations to increase responsiveness
